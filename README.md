@@ -7,11 +7,13 @@ TaskSimple is a lightweight task app.
 Navigate to the /Express folder and start the express server
 
 ```npm install```
+
 ```DEBUG=express:* npm start```
 
 In a separate window navigate to the /Angular folder and start Angular
 
 ```npm install```
+
 ```npm start```
 
 On your local machine, navigate to the Angular homepage
