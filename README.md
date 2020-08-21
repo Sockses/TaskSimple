@@ -4,17 +4,15 @@ TaskSimple is a lightweight task app.
 
 ## Installation
 
-Navigate to the /vagrant folder and run
+Navigate to the /Express folder and start the express server
 
-```vagrant up```
+```npm install```
+```DEBUG=express:* npm start```
 
-SSH into the VM
+In a separate window navigate to the /Angular folder and start Angular
 
-```vagrant ssh```
-
-Navigate to the Angular folder and start Angular
-
-```cd /var/www/Angular && npm install && npm start```
+```npm install```
+```npm start```
 
 On your local machine, navigate to the Angular homepage
 
