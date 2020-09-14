@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
+
 const taskSchema = new mongoose.Schema({
     title: {
         type: String,
