@@ -10,7 +10,8 @@ const taskSchema = new mongoose.Schema({
     'completed': {
         type: Boolean,
         default: false
-    }
+    },
+    'completed_at': Date
 }, {
     timestamps: {
         createdAt: 'created_at',
