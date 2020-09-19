@@ -1,6 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Task: #{title}
-  p Completed: #{completed}
+  h1= document1.title
+  p Task: #{document1.title}
+  p Completed: #{document1.completed}
+  p Created at: #{document1.created_at}
+  p Updated at: #{document1.updated_at}
+  p Completed at: #{document1.completed_at}
+
+  h1= document2.title
+  p Task: #{document2.title}
+  p Completed: #{document2.completed}
+  p Created at: #{document2.created_at}
+  p Updated at: #{document2.updated_at}
+  p Completed at: #{document2.completed_at}
