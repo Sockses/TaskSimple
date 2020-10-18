@@ -6,7 +6,7 @@ TaskSimple is a lightweight task app.
 
 Open a PowerShell terminal and navigate to the ```/Express``` folder to install the project
 
-```npm ci```
+```npm install```
 
 The ```.sample-env``` file has been provided for you to add your MongoDB URL (among other vars). Make sure to rename this file to ```.env``` once you've done so.
 
@@ -20,7 +20,7 @@ Server output can be found at
 
 In a separate window navigate to the ```/Angular``` folder and start Angular
 
-```npm ci```
+```npm install```
 
 ```npm start```
 
