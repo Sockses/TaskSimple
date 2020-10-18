@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Task = require('../schema/task.schema.js'); //import Task model
+const Task = require('../schema/task.schema.js');
 
 Task.deleteMany({ title: /Dummy task/ }, (err) => {
   console.error(err);
@@ -9,20 +9,24 @@ Task.deleteMany({ title: /Dummy task/ }, (err) => {
 
 var dummyTasks = [
   {
+    uid: 1,
     title: 'Dummy task',
-    completed: false
+    completed: false,
   },
   {
+    uid: 2,
     title: 'Dummy task 2',
     completed: true,
-    completed_at: Date.now()
-  }
+    completed_at: Date.now(),
+  },
 ];
 
 for (let task = 0; task < dummyTasks.length; task++) {
-  let new_task = new Task ({
+  let new_task = new Task({
+    _id: dummyTasks[task]._id,
+    uid: dummyTasks[task].uid,
     title: dummyTasks[task].title,
-    completed: dummyTasks[task].completed
+    completed: dummyTasks[task].completed,
   });
 
   if (dummyTasks[task].completed_at) {
@@ -34,28 +38,12 @@ for (let task = 0; task < dummyTasks.length; task++) {
   });
 }
 
-router.get('/', function(req, res) {
-  Task.find({ title: /Dummy task/ }).then(
-    (documents) => {
-      console.log(documents);
-      res.render('index', {
-        document1 : {
-          title: documents[0].title,
-          completed: documents[0].completed,
-          created_at: documents[0].created_at,
-          updated_at: documents[0].updated_at,
-          completed_at: documents[0].completed_at
-        },
-        document2 : {
-          title: documents[1].title,
-          completed: documents[1].completed,
-          created_at: documents[1].created_at,
-          updated_at: documents[1].updated_at,
-          completed_at: documents[1].completed_at
-        }
-      });
-    }
-  );
+router.get('/', (req, res) => {
+  Task.find({ title: /Dummy task/ }).then((documents) => {
+    console.log(documents);
+    res.append('Access-Control-Allow-Origin', '*');
+    res.json(documents);
+  });
 });
 
 module.exports = router;
