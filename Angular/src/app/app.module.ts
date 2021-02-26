@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TaskListComponent } from './task-list/task-list.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -16,7 +15,7 @@ import { HeaderComponent } from './header/header.component';
     TaskListComponent,
     HeaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
