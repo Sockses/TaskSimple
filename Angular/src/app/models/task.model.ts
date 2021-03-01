@@ -3,9 +3,9 @@ export class Task {
     public id: string,
     public uid: number,
     public title: string,
-    public createdAt: string,
-    public updatedAt: string,
+    public created_at: string,
+    public updated_at: string,
     public completed: boolean,
-    public completedAt?: string
+    public completed_at?: string
   ) {}
 }
