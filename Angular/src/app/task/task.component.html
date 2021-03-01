@@ -1,5 +1,5 @@
-<div class="col-sm-6">
-    <ul class="list-group">
-        <li class="list-group-item">{{ task.title }}</li>
-    </ul>
-</div>
+<ul class="list-group">
+  <li class="list-group-item" (click)="taskSelected(task)">
+    <p>{{ task.title }}</p>
+  </li>
+</ul>
