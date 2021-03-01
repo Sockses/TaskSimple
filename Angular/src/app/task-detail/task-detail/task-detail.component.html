@@ -1,0 +1,10 @@
+<div class="list-group" *ngIf="task">
+  <div class="list-group-item">
+    <p class="font-italic text-muted">Created: {{ task.created_at }}</p>
+    <p class="font-italic text-muted">Update: {{ task.updated_at }}</p>
+    <p class="font-italic text-muted">Completed: {{ task.completed }}</p>
+    <p class="font-italic text-muted" *ngIf="task.completed_at">
+      Completed at: {{ task.completed_at }}
+    </p>
+  </div>
+</div>
