@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
@@ -7,6 +7,12 @@ const taskSchema = new mongoose.Schema(
     uid: {
       type: Number,
       required: true,
+      index: true,
+    },
+    task_id: {
+      type: Number,
+      required: true,
+      unique: true,
     },
     title: {
       type: String,
@@ -20,10 +26,10 @@ const taskSchema = new mongoose.Schema(
   },
   {
     timestamps: {
-      createdAt: 'created_at',
-      updatedAt: 'updated_at',
+      createdAt: "created_at",
+      updatedAt: "updated_at",
     },
   }
 );
 
-module.exports = mongoose.model('Task', taskSchema);
+module.exports = mongoose.model("Task", taskSchema);
