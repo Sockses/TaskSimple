@@ -11,19 +11,28 @@ const taskEndpoint = `${environment.taskServer}/tasks`;
 export class TasksService {
   constructor(private http: HttpClient) {}
   @Output() taskSelected = new EventEmitter<Task>();
+  @Output() taskDeleted = new EventEmitter<number>();
 
   getTasks() {
-    return this.http.get(taskEndpoint);
+    return this.http.get<Task[]>(taskEndpoint);
   }
 
-  addTask(taskTitle: string): Observable<any> {
+  addTask(taskTitle: string): Observable<Task> {
     const newTask = new Task(1, taskTitle, "", "", false);
-    return this.http.post<any>(
+    return this.http.post<Task>(
       `${taskEndpoint}/add`,
       { task: newTask },
       {
         headers: new HttpHeaders({ "Content-Type": "application/json" }),
       }
     );
+  }
+
+  deleteTask(taskId: number) {
+    this.http
+      .delete<Task>(`${taskEndpoint}/${taskId}/delete`)
+      .subscribe((task) => {
+        this.taskDeleted.emit(task._id);
+      });
   }
 }
