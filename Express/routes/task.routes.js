@@ -12,9 +12,9 @@ router.use(cors());
 router.get("/", (req, res, next) => {
   Task.find({})
     .then((documents) => {
-      if (documents.length == 0) {
-        throw new Error("No documents found");
-      }
+      // if (documents.length == 0) {
+      //   throw new Error("No documents found");
+      // }
       res.json(documents);
     })
     .catch((err) => {
