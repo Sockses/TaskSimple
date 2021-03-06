@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from "@angular/common/http";
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Task } from "../models/task.model";
 
 import { TasksService } from "./../services/tasks.service";
@@ -14,8 +14,13 @@ export class TaskListComponent implements OnInit {
   constructor(private tasksService: TasksService) {}
 
   ngOnInit(): void {
-    this.tasksService.getTasks().subscribe((tasks: Task[]) => {
+    this.tasksService.getTasks().subscribe((tasks) => {
+      console.log(tasks);
       this.tasks = tasks;
+    });
+
+    this.tasksService.taskDeleted.subscribe((taskId) => {
+      this.tasks = this.tasks.filter((task) => task._id != taskId);
     });
   }
 
