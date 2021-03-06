@@ -13,11 +13,6 @@ const taskSchema = new mongoose.Schema(
       required: true,
       index: true,
     },
-    task_id: {
-      type: Number,
-      required: true,
-      unique: true,
-    },
     title: {
       type: String,
       required: true,
