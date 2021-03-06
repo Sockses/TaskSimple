@@ -19,5 +19,6 @@ export class TaskDetailComponent implements OnInit {
 
   deleteTask(taskId: number) {
     this.taskService.deleteTask(taskId);
+    this.task = null;
   }
 }
