@@ -38,4 +38,19 @@ router.post("/add", (req, res, next) => {
     });
 });
 
+/**
+ * Delete task
+ */
+
+router.delete("/:taskId/delete", (req, res, next) => {
+  Task.findByIdAndDelete(req.params.taskId)
+    .then((document) => {
+      console.log(document);
+      res.json(document);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
