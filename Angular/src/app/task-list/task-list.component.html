@@ -1,1 +1,20 @@
+<form>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      id="taskTitleInput"
+      placeholder="Enter task title"
+      #newTaskTitleInput
+    />
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="addTask(newTaskTitleInput)"
+  >
+    Add task
+  </button>
+</form>
+<hr />
 <app-task *ngFor="let task of tasks" [task]="task"></app-task>
