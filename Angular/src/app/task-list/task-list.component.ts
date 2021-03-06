@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { HttpErrorResponse } from "@angular/common/http";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { Task } from "../models/task.model";
 
 import { TasksService } from "./../services/tasks.service";
@@ -16,5 +17,16 @@ export class TaskListComponent implements OnInit {
     this.tasksService.getTasks().subscribe((tasks: Task[]) => {
       this.tasks = tasks;
     });
+  }
+
+  addTask(newTaskTitle: HTMLInputElement) {
+    this.tasksService.addTask(newTaskTitle.value).subscribe(
+      (res) => {
+        this.tasks.push(res);
+      },
+      (err: HttpErrorResponse) => {
+        console.error(err);
+      }
+    );
   }
 }
