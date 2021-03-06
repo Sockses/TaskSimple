@@ -9,12 +9,15 @@ import { TasksService } from "src/app/services/tasks.service";
 })
 export class TaskDetailComponent implements OnInit {
   task: Task;
-
   constructor(private taskService: TasksService) {}
 
   ngOnInit(): void {
     this.taskService.taskSelected.subscribe((task: Task) => {
       this.task = task;
     });
+  }
+
+  deleteTask(taskId: number) {
+    this.taskService.deleteTask(taskId);
   }
 }

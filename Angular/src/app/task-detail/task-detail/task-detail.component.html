@@ -6,5 +6,12 @@
     <p class="font-italic text-muted" *ngIf="task.completed_at">
       Completed at: {{ task.completed_at }}
     </p>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="deleteTask(task._id)"
+    >
+      Delete
+    </button>
   </div>
 </div>
