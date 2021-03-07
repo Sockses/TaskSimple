@@ -12,6 +12,7 @@ export class TasksService {
   constructor(private http: HttpClient) {}
   @Output() taskSelected = new EventEmitter<Task>();
   @Output() taskDeleted = new EventEmitter<number>();
+  @Output() taskUpdated = new EventEmitter<Task>();
 
   getTasks() {
     return this.http.get<Task[]>(taskEndpoint);
@@ -33,6 +34,14 @@ export class TasksService {
       .delete<Task>(`${taskEndpoint}/${taskId}/delete`)
       .subscribe((task) => {
         this.taskDeleted.emit(task._id);
+      });
+  }
+
+  updateTask(taskId: number, update: object) {
+    this.http
+      .patch<Task>(`${taskEndpoint}/${taskId}/update`, update)
+      .subscribe((task) => {
+        this.taskUpdated.emit(task);
       });
   }
 }
