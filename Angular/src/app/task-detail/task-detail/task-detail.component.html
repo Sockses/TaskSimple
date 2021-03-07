@@ -1,6 +1,15 @@
 <div class="list-group" *ngIf="task">
   <div class="list-group-item">
-    <div class="form-group">
+    <button
+      type="button"
+      class="close"
+      style="margin-bottom: 10px"
+      aria-label="Close"
+      (click)="task = null"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="input-group" style="margin-bottom: 10px">
       <input
         type="text"
         class="form-control"
@@ -8,23 +17,25 @@
         placeholder="Enter new task title"
         #newTaskTitleInput
       />
+      <div class="input-group-append">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="editTaskTitle(newTaskTitleInput)"
+        >
+          Edit
+        </button>
+      </div>
     </div>
-    <button
-      type="button"
-      class="btn btn-primary"
-      (click)="editTaskTitle(newTaskTitleInput)"
-    >
-      Edit
-    </button>
     <p class="font-italic text-muted">Created: {{ task.created_at }}</p>
-    <p class="font-italic text-muted">Update: {{ task.updated_at }}</p>
-    <p class="font-italic text-muted">Completed: {{ task.completed }}</p>
+    <p class="font-italic text-muted">Updated: {{ task.updated_at }}</p>
     <p class="font-italic text-muted" *ngIf="task.completed_at">
       Completed at: {{ task.completed_at }}
     </p>
+    <p class="font-italic text-muted">Completed: {{ task.completed }}</p>
     <button
       type="button"
-      class="btn btn-primary"
+      class="btn btn-danger btn-block"
       (click)="deleteTask(task._id)"
     >
       Delete
