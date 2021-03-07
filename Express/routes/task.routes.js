@@ -53,4 +53,24 @@ router.delete("/:taskId/delete", (req, res, next) => {
     });
 });
 
+/**
+ * Update task
+ */
+
+router.patch("/:taskId/update", (req, res, next) => {
+  Task.findByIdAndUpdate(
+    req.params.taskId,
+    { title: req.body.newTitle },
+    { new: true }
+  )
+    .then((document) => {
+      console.log(document);
+      res.json(document);
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
+});
+
 module.exports = router;
