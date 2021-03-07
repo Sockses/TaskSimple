@@ -28,5 +28,6 @@ export class TaskDetailComponent implements OnInit {
 
   editTaskTitle(task: HTMLInputElement) {
     this.taskService.updateTask(this.task._id, { newTitle: task.value });
+    task.value = null;
   }
 }
