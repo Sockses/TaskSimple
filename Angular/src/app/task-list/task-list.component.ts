@@ -34,6 +34,7 @@ export class TaskListComponent implements OnInit {
     this.tasksService.addTask(newTaskTitle.value).subscribe(
       (res) => {
         this.tasks.push(res);
+        newTaskTitle.value = null;
       },
       (err: HttpErrorResponse) => {
         console.error(err);
