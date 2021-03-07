@@ -1,5 +1,21 @@
 <div class="list-group" *ngIf="task">
   <div class="list-group-item">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        id="taskTitleInput"
+        placeholder="Enter new task title"
+        #newTaskTitleInput
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="editTaskTitle(newTaskTitleInput)"
+    >
+      Edit
+    </button>
     <p class="font-italic text-muted">Created: {{ task.created_at }}</p>
     <p class="font-italic text-muted">Update: {{ task.updated_at }}</p>
     <p class="font-italic text-muted">Completed: {{ task.completed }}</p>

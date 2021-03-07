@@ -15,10 +15,18 @@ export class TaskDetailComponent implements OnInit {
     this.taskService.taskSelected.subscribe((task: Task) => {
       this.task = task;
     });
+
+    this.taskService.taskUpdated.subscribe((task: Task) => {
+      this.task = task;
+    });
   }
 
   deleteTask(taskId: number) {
     this.taskService.deleteTask(taskId);
     this.task = null;
+  }
+
+  editTaskTitle(task: HTMLInputElement) {
+    this.taskService.updateTask(this.task._id, { newTitle: task.value });
   }
 }
