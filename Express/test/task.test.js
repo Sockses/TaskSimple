@@ -11,14 +11,6 @@ describe("Task", function () {
       });
     });
 
-    it("should be invalid if task ID is missing", function (done) {
-      new_task = new Task();
-      new_task.validate((err) => {
-        expect(err.errors.task_id).to.exist;
-        done();
-      });
-    });
-
     it("should be invalid if title is missing", function (done) {
       new_task = new Task();
       new_task.validate((err) => {
@@ -31,14 +23,6 @@ describe("Task", function () {
       new_task = new Task({ uid: "NaN" });
       new_task.validate((err) => {
         expect(err.errors.uid).to.exist;
-        done();
-      });
-    });
-
-    it("should be invalid if task ID is not a number or cannot be cast to a number", function (done) {
-      new_task = new Task({ task_id: "NaN" });
-      new_task.validate((err) => {
-        expect(err.errors.task_id).to.exist;
         done();
       });
     });
@@ -74,12 +58,5 @@ describe("Task", function () {
         done();
       });
     });
-
-    /**
-     * TODO: Add some kind of validation to check uniqueness
-     * See https://mongoosejs.com/docs/validation.html#the-unique-option-is-not-a-validator
-     */
-
-    // it("should have a unique task ID", function (done) {});
   });
 });
