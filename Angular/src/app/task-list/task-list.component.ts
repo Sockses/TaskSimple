@@ -15,12 +15,18 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit(): void {
     this.tasksService.getTasks().subscribe((tasks) => {
-      console.log(tasks);
       this.tasks = tasks;
     });
 
     this.tasksService.taskDeleted.subscribe((taskId) => {
       this.tasks = this.tasks.filter((task) => task._id != taskId);
+    });
+
+    this.tasksService.taskUpdated.subscribe((newTask) => {
+      let index = this.tasks.findIndex((task) => {
+        return task._id == newTask._id;
+      });
+      this.tasks[index] = newTask;
     });
   }
 
