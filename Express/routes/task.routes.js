@@ -12,9 +12,6 @@ router.use(cors());
 router.get("/", (req, res, next) => {
   Task.find({})
     .then((documents) => {
-      // if (documents.length == 0) {
-      //   throw new Error("No documents found");
-      // }
       res.json(documents);
     })
     .catch((err) => {
@@ -23,7 +20,7 @@ router.get("/", (req, res, next) => {
 });
 
 /**
- * Add new task
+ * Add task
  */
 
 router.post("/add", (req, res, next) => {
@@ -45,7 +42,6 @@ router.post("/add", (req, res, next) => {
 router.delete("/:taskId/delete", (req, res, next) => {
   Task.findByIdAndDelete(req.params.taskId)
     .then((document) => {
-      console.log(document);
       res.json(document);
     })
     .catch((err) => {
@@ -64,11 +60,9 @@ router.patch("/:taskId/update", (req, res, next) => {
     { new: true }
   )
     .then((document) => {
-      console.log(document);
       res.json(document);
     })
     .catch((err) => {
-      console.log(err);
       next(err);
     });
 });
