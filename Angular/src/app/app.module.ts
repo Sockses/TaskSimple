@@ -8,6 +8,7 @@ import { TaskComponent } from "./task/task.component";
 import { TaskListComponent } from "./task-list/task-list.component";
 import { HeaderComponent } from "./header/header.component";
 import { TaskDetailComponent } from "./task-detail/task-detail.component";
+import { NotFoundComponent } from './not-found/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TaskDetailComponent } from "./task-detail/task-detail.component";
     TaskListComponent,
     HeaderComponent,
     TaskDetailComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
