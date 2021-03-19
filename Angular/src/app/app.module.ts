@@ -9,6 +9,7 @@ import { TaskListComponent } from "./task-list/task-list.component";
 import { HeaderComponent } from "./header/header.component";
 import { TaskDetailComponent } from "./task-detail/task-detail.component";
 import { NotFoundComponent } from './not-found/not-found/not-found.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NotFoundComponent } from './not-found/not-found/not-found.component';
     HeaderComponent,
     TaskDetailComponent,
     NotFoundComponent,
+    DashboardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
