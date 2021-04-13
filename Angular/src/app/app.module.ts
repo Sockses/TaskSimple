@@ -10,6 +10,8 @@ import { HeaderComponent } from "./header/header.component";
 import { TaskDetailComponent } from "./task-detail/task-detail.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { AngularFireModule } from "@angular/fire";
+import { environment } from "src/environments/environment";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,12 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
     NotFoundComponent,
     DashboardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

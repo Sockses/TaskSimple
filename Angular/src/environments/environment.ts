@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  taskServer: 'http://localhost:3000',
+  taskServer: "http://localhost:3000",
+  firebaseConfig: {
+    apiKey: "AIzaSyDGixTOUt5WRuhWu68AuU5bRO__8RHn75Y",
+    authDomain: "tasksimpledev.firebaseapp.com",
+    projectId: "tasksimpledev",
+    storageBucket: "tasksimpledev.appspot.com",
+    messagingSenderId: "475659207478",
+    appId: "1:475659207478:web:6993a0eeb622716c166997",
+  },
 };
 
 /*
