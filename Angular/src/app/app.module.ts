@@ -13,6 +13,8 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "src/environments/environment";
 import { AngularFireAuth } from "@angular/fire/auth";
+import { LandingComponent } from "./landing/landing.component";
+import { LoginComponent } from "./auth/login/login.component";
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { AngularFireAuth } from "@angular/fire/auth";
     TaskDetailComponent,
     NotFoundComponent,
     DashboardComponent,
+    LandingComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
