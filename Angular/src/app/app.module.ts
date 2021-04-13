@@ -12,6 +12,7 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "src/environments/environment";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { environment } from "src/environments/environment";
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
