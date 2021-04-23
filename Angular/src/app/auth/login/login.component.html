@@ -3,16 +3,28 @@
   <div class="row justify-content-center">
     <div class="col-4" style="padding-top: 10px">
       <h4 class="text-center">Log In</h4>
-      <form>
+      <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
         <div id="user-inputs">
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" class="form-control" />
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              ngModel
+              name="email"
+            />
             <label for="password">Password</label>
-            <input type="password" id="password" class="form-control" />
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              ngModel
+              name="password"
+            />
           </div>
         </div>
-        <button class="btn btn-primary" type="button">Login</button>
+        <button class="btn btn-primary" type="submit">Login</button>
       </form>
       <div style="padding-top: 10px">
         <a routerLink="/register">Don't have an account? Register now</a>
