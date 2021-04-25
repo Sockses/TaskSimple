@@ -16,6 +16,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { LandingComponent } from "./landing/landing.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { FormsModule } from "@angular/forms";
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule } from "@angular/forms";
     DashboardComponent,
     LandingComponent,
     LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
