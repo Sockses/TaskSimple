@@ -10,6 +10,7 @@ import {
   redirectUnauthorizedTo,
 } from "@angular/fire/auth-guard";
 import { LandingComponent } from "./landing/landing.component";
+import { EditComponent } from "./user/edit/edit.component";
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo("/user/login");
 
@@ -27,6 +28,12 @@ const routes: Routes = [
       },
       { path: "login", component: LoginComponent },
       { path: "signup", component: SignupComponent },
+      {
+        path: "edit",
+        component: EditComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+      },
     ],
   },
   { path: "not-found", component: NotFoundComponent },
