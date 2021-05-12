@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
         // Successful login
         // Do something with the userCredential
         //
-        this.router.navigate(["/"]);
+        this.router.navigate(["/user/dashboard"]);
       })
       .catch((error) => {
         // Notify user of error

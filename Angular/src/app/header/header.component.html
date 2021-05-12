@@ -16,12 +16,14 @@
       aria-labelledby="dropdownMenuButton"
     >
       <div *ngIf="auth.user | async; else showLogin">
-        <a class="dropdown-item" routerLink="/edit">Edit Profile</a>
+        <a class="dropdown-item" routerLink="/user/dashboard">Dashboard</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink="/user/edit">Edit Profile</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="logout()">Log Out</a>
       </div>
       <ng-template #showLogin>
-        <a class="dropdown-item" routerLink="/login">Log In</a>
+        <a class="dropdown-item" routerLink="/user/login">Log In</a>
       </ng-template>
     </div>
   </div>
