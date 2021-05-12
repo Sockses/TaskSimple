@@ -17,6 +17,7 @@ import { LandingComponent } from "./landing/landing.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { FormsModule } from "@angular/forms";
 import { SignupComponent } from './auth/signup/signup.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     LandingComponent,
     LoginComponent,
     SignupComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
