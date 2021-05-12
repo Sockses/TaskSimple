@@ -9,11 +9,12 @@ import {
   AngularFireAuthGuard,
   redirectUnauthorizedTo,
 } from "@angular/fire/auth-guard";
+import { LandingComponent } from "./landing/landing.component";
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo("/user/login");
 
 const routes: Routes = [
-  { path: "", component: DashboardComponent, pathMatch: "full" },
+  { path: "", component: LandingComponent, pathMatch: "full" },
   {
     path: "user",
     component: UserComponent,
