@@ -9,12 +9,15 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  constructor(public auth: AngularFireAuth, private router: Router) {}
+  constructor(
+    public angularFireAuth: AngularFireAuth,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
   login(form: NgForm) {
-    this.auth
+    this.angularFireAuth
       .signInWithEmailAndPassword(form.value.email, form.value.password)
       .then((userCredential) => {
         //

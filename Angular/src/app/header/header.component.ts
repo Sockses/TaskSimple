@@ -8,12 +8,15 @@ import { Router } from "@angular/router";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public auth: AngularFireAuth, private router: Router) {}
+  constructor(
+    public angularFireAuth: AngularFireAuth,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
   logout() {
-    this.auth.signOut();
+    this.angularFireAuth.signOut();
     this.router.navigate(["/"]);
   }
 }
