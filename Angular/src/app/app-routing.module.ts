@@ -7,12 +7,15 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 import { UserComponent } from "./user/user.component";
 import {
   AngularFireAuthGuard,
+  redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from "@angular/fire/auth-guard";
 import { LandingComponent } from "./landing/landing.component";
 import { EditComponent } from "./user/edit/edit.component";
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo("/user/login");
+const redirectLoggedUserInToDashboard = () =>
+  redirectLoggedInTo("/user/dashboard");
 
 const routes: Routes = [
   { path: "", component: LandingComponent, pathMatch: "full" },
@@ -26,8 +29,18 @@ const routes: Routes = [
         canActivate: [AngularFireAuthGuard],
         data: { authGuardPipe: redirectUnauthorizedToLogin },
       },
-      { path: "login", component: LoginComponent },
-      { path: "signup", component: SignupComponent },
+      {
+        path: "login",
+        component: LoginComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectLoggedUserInToDashboard },
+      },
+      {
+        path: "signup",
+        component: SignupComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectLoggedUserInToDashboard },
+      },
       {
         path: "edit",
         component: EditComponent,
