@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  taskServer: 'http://localhost:3000',
+  taskServer: "http://localhost:3000",
 };
 
 /*
