@@ -46,6 +46,7 @@ const routes: Routes = [
         canActivate: [AngularFireAuthGuard],
         data: { authGuardPipe: redirectUnauthorizedToLogin },
       },
+      { path: "", pathMatch: "full", redirectTo: "dashboard" },
     ],
   },
   { path: "not-found", component: NotFoundComponent },
