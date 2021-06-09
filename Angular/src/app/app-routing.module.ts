@@ -14,8 +14,7 @@ import { LandingComponent } from "./landing/landing.component";
 import { EditComponent } from "./user/edit/edit.component";
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo("/user/login");
-const redirectLoggedUserInToDashboard = () =>
-  redirectLoggedInTo("/user/dashboard");
+const redirectLoggedInToDashboard = () => redirectLoggedInTo("/user/dashboard");
 
 const routes: Routes = [
   { path: "", component: LandingComponent, pathMatch: "full" },
@@ -33,13 +32,13 @@ const routes: Routes = [
         path: "login",
         component: LoginComponent,
         canActivate: [AngularFireAuthGuard],
-        data: { authGuardPipe: redirectLoggedUserInToDashboard },
+        data: { authGuardPipe: redirectLoggedInToDashboard },
       },
       {
         path: "signup",
         component: SignupComponent,
         canActivate: [AngularFireAuthGuard],
-        data: { authGuardPipe: redirectLoggedUserInToDashboard },
+        data: { authGuardPipe: redirectLoggedInToDashboard },
       },
       {
         path: "edit",
