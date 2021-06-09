@@ -9,6 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./signup.component.scss"],
 })
 export class SignupComponent implements OnInit {
+  loginError = false;
+  loginErrorMessage = "";
   constructor(public auth: AngularFireAuth, private router: Router) {}
 
   ngOnInit(): void {}
@@ -21,10 +23,11 @@ export class SignupComponent implements OnInit {
         // Successful signup
         // Do something with the userCredential
         //
-        this.router.navigate(["/"]);
+        this.router.navigate(["/user/dashboard"]);
       })
       .catch((error) => {
-        // Notify user of error
+        this.loginError = true;
+        this.loginErrorMessage = error.message;
       });
   }
 }
