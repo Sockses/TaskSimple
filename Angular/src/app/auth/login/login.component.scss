@@ -10,3 +10,7 @@ div a:after {
   height: 0;
   width: 1px;
 }
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+}

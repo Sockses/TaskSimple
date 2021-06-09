@@ -9,8 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./signup.component.scss"],
 })
 export class SignupComponent implements OnInit {
-  loginError = false;
-  loginErrorMessage = "";
+  signupError = false;
+  signupErrorMessage = "";
   constructor(public auth: AngularFireAuth, private router: Router) {}
 
   ngOnInit(): void {}
@@ -26,8 +26,8 @@ export class SignupComponent implements OnInit {
         this.router.navigate(["/user/dashboard"]);
       })
       .catch((error) => {
-        this.loginError = true;
-        this.loginErrorMessage = error.message;
+        this.signupError = true;
+        this.signupErrorMessage = error.message;
       });
   }
 }
