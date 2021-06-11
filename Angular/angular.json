@@ -121,6 +121,9 @@
             "devServerTarget": "TaskSimple:serve"
           },
           "configurations": {
+            "local": {
+              "devServerTarget": "TaskSimple:serve:local"
+            },
             "production": {
               "devServerTarget": "TaskSimple:serve:production"
             }
