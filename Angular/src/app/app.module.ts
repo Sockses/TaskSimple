@@ -16,9 +16,9 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { LandingComponent } from "./landing/landing.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { FormsModule } from "@angular/forms";
-import { SignupComponent } from './auth/signup/signup.component';
-import { UserComponent } from './user/user.component';
-import { EditComponent } from './user/edit/edit.component';
+import { SignupComponent } from "./auth/signup/signup.component";
+import { UserComponent } from "./user/user.component";
+import { EditComponent } from "./user/edit/edit.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +39,8 @@ import { EditComponent } from './user/edit/edit.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    // when running with the 'local' config, environment.firebaseConfig will appear
+    // as a non-existent property, but will actually exist once the build runs
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
   ],
