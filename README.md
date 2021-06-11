@@ -32,6 +32,10 @@ The homepage can be found at
 
 `localhost:4200`
 
+Tests can be run with:
+
+`ng test` (optionally specify _only_ Chrome or Firefox with the `--browsers` flag) and `ng e2e --configuration=local`
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue.
