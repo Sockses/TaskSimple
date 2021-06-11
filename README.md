@@ -1,6 +1,6 @@
 # TaskSimple
 
-TaskSimple is a lightweight task app that uses MongoDB and AngularFire library for authentication.
+TaskSimple is a lightweight task app that uses Node.js, MongoDB, and Angular.
 
 ## Installation
 
