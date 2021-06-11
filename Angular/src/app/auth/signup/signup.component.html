@@ -2,27 +2,52 @@
   <div class="row justify-content-center">
     <div class="col-4" style="padding-top: 10px">
       <h4 class="text-center">Sign Up</h4>
-      <div *ngIf="loginError" class="alert alert-danger" role="alert">
-        {{ loginErrorMessage }}
+      <div *ngIf="signupError" class="alert alert-danger" role="alert">
+        {{ signupErrorMessage }}
       </div>
       <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm">
         <div id="user-inputs">
           <div class="form-group">
             <label for="email">Email</label>
+            <div
+              *ngIf="!email.valid && email.touched && email.dirty"
+              class="alert alert-danger"
+              id="emailError"
+              role="alert"
+            >
+              Please enter a valid email
+            </div>
             <input
               type="email"
               id="email"
               class="form-control"
               ngModel
+              #email="ngModel"
               name="email"
+              email
+              required
             />
             <label for="password">Password</label>
+            <div
+              *ngIf="!password.valid && password.touched && password.dirty"
+              class="alert alert-danger"
+              id="passwordError"
+              role="alert"
+            >
+              Please enter a valid password:
+              <br />
+              <!-- prettier-ignore -->
+              - Must be at least eight characters
+            </div>
             <input
               type="password"
               id="password"
               class="form-control"
               ngModel
+              #password="ngModel"
               name="password"
+              required
+              minlength="8"
             />
           </div>
         </div>
