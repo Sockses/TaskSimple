@@ -1,9 +1,22 @@
 <div class="container">
   <h3>Welcome to TaskSimple!</h3>
   <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius nobis
-    similique necessitatibus ab corporis harum ducimus, dolorum numquam sed odio
-    adipisci soluta veritatis earum ipsa doloremque magnam temporibus,
-    praesentium quis?
+    TaskSimple is a lightweight and flexible task list built to help keep your
+    day on track with easy to use add/edit/remove functionality. Use TaskSimple
+    for your daily work tasks, a cleaning or grocery list, and more.
+    <br />
+    <br />
+    TaskSimple is available in two flavors: an addless free version, where tasks
+    are only available until the close of the browser. Or a paid version, where
+    tasks can be saved indefinitely. Access to the free version does not require
+    an account, see below to get started:
   </p>
+  <div>
+    <ng-template [ngIf]="sessionStorageAccess">
+      <!-- TODO: Determine whether or not the <app-task-list> component can be used here -->
+    </ng-template>
+    <ng-template [ngIf]="!sessionStorageAccess">
+      <!-- TODO: Dispaly an error message -->
+    </ng-template>
+  </div>
 </div>
