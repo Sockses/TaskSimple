@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SessionTask } from "../models/SessionTask.model";
-import { SessionStorageTasksService } from "../services/sessionStorageTasks.service";
+import { SessionTaskService } from "../services/sessionTask.service";
 
 @Component({
   selector: "app-landing",
@@ -10,9 +10,9 @@ import { SessionStorageTasksService } from "../services/sessionStorageTasks.serv
 export class LandingComponent implements OnInit {
   sessionStorageAccess = false;
 
-  constructor(private sessionStorageTaskService: SessionStorageTasksService) {
+  constructor(private sessionTaskService: SessionTaskService) {
     this.sessionStorageAccess =
-      this.sessionStorageTaskService.checkSessionStorageAccess();
+      this.sessionTaskService.checkSessionStorageAccess();
   }
 
   tasks: SessionTask[];
@@ -22,6 +22,6 @@ export class LandingComponent implements OnInit {
   }
 
   loadSessionStorageTasks() {
-    this.tasks = this.sessionStorageTaskService.getTasks();
+    this.tasks = this.sessionTaskService.getTasks();
   }
 }

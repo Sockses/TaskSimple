@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { SessionTask } from "../models/SessionTask.model";
 
 @Injectable({ providedIn: "root" })
-export class SessionStorageTasksService {
+export class SessionTaskService {
   tasks: SessionTask[] = [];
   exampleAdded = false;
 
