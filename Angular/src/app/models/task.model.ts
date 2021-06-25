@@ -1,3 +1,6 @@
+// TODO: Should this and SesstionTask utilize
+// inheritance or an abstract class?
+
 export class Task {
   constructor(
     public uid: number,
