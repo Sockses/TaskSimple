@@ -11,8 +11,7 @@ export class LandingComponent implements OnInit {
   sessionStorageAccess = false;
 
   constructor(private sessionTaskService: SessionTaskService) {
-    this.sessionStorageAccess =
-      this.sessionTaskService.checkSessionStorageAccess();
+    this.sessionStorageAccess = this.sessionTaskService.sessionStorageAccess();
   }
 
   tasks: SessionTask[];

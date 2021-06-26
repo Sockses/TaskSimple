@@ -39,7 +39,7 @@ export class SessionTaskService {
     // TODO: Determine unique key (or add one) for update/delete actions
   }
 
-  checkSessionStorageAccess() {
+  sessionStorageAccess() {
     return window.sessionStorage ? true : false;
   }
 
