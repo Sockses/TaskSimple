@@ -43,6 +43,7 @@ export class SessionTaskService {
     return window.sessionStorage ? true : false;
   }
 
+  // TODO: Should this handle an empty `tasksJson` value?
   parseTasks(tasksJson: string): SessionTask[] {
     return JSON.parse(tasksJson);
   }
