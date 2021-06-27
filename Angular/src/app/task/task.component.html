@@ -1,5 +1,20 @@
 <ul class="list-group">
-  <li class="list-group-item" (click)="taskSelected(task)">
-    <p>{{ task.title }}</p>
+  <li
+    class="list-group-item"
+    placement="right"
+    [ngbPopover]="popContent"
+    [autoClose]="'outside'"
+  >
+    <ng-template #popContent>
+      <!-- prettier-ignore -->
+      Created on: {{ task.created_at | date: "short" }}
+      <br />
+      <ng-template [ngIf]="task.completed">
+        Completed at: {{ task.completed_at | date: "short" }}
+      </ng-template>
+    </ng-template>
+    <p>
+      {{ task.title }}
+    </p>
   </li>
 </ul>
