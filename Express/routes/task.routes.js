@@ -54,11 +54,16 @@ router.delete("/:taskId/delete", (req, res, next) => {
  */
 
 router.patch("/:taskId/update", (req, res, next) => {
-  Task.findByIdAndUpdate(
-    req.params.taskId,
-    { title: req.body.newTitle },
-    { new: true }
-  )
+  let update = {};
+
+  if (req.body.newTitle) {
+    update.title = res.body.newTitle;
+  } else if (req.body.completed !== null) {
+    update.completed = req.body.completed;
+    update.completed_at = req.body.completed ? Date.now() : null;
+  }
+
+  Task.findByIdAndUpdate(req.params.taskId, update, { new: true })
     .then((document) => {
       res.json(document);
     })
