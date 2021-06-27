@@ -19,6 +19,7 @@ import { FormsModule } from "@angular/forms";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { UserComponent } from "./user/user.component";
 import { EditComponent } from "./user/edit/edit.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { EditComponent } from "./user/edit/edit.component";
     // as a non-existent property, but will actually exist once the build runs
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
+    NgbModule,
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent],
