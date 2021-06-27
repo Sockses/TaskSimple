@@ -15,7 +15,7 @@ export class TaskComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  taskSelected(task: Task) {
-    this.taskService.taskSelected.emit(task);
+  toggleCompletion(taskId: number, completed: boolean) {
+    this.taskService.updateTask(taskId, { completed: completed });
   }
 }
