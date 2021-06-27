@@ -20,6 +20,14 @@
       <ng-template [ngIf]="task.completed">
         Completed at: {{ task.completed_at | date: "short" }}
       </ng-template>
+      <hr />
+      <button
+        type="button"
+        class="btn btn-danger btn-block btn-sm"
+        (click)="deleteTask(task._id)"
+      >
+        Delete
+      </button>
     </ng-template>
     <p>
       {{ task.title }}

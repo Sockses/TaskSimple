@@ -18,4 +18,8 @@ export class TaskComponent implements OnInit {
   toggleCompletion(taskId: number, completed: boolean) {
     this.taskService.updateTask(taskId, { completed: completed });
   }
+
+  deleteTask(taskId: number) {
+    this.taskService.deleteTask(taskId);
+  }
 }
