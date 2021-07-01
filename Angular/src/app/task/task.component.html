@@ -1,5 +1,35 @@
 <ul class="list-group">
-  <li class="list-group-item" (click)="taskSelected(task)">
-    <p>{{ task.title }}</p>
+  <li
+    class="list-group-item"
+    placement="right"
+    [ngbPopover]="popContent"
+    [autoClose]="'outside'"
+  >
+    <ng-template #popContent>
+      <label for="completedInput">Mark complete?&ensp;</label>
+      <input
+        id="completedInput"
+        type="checkbox"
+        [checked]="task.completed"
+        (click)="toggleCompletion(task._id, task.completed ? false : true)"
+      />
+      <hr />
+      Created on: {{ task.created_at | date: "short" }}
+      <br />
+      <ng-template [ngIf]="task.completed">
+        Completed at: {{ task.completed_at | date: "short" }}
+      </ng-template>
+      <hr />
+      <button
+        type="button"
+        class="btn btn-danger btn-block btn-sm"
+        (click)="deleteTask(task._id)"
+      >
+        Delete
+      </button>
+    </ng-template>
+    <p>
+      {{ task.title }}
+    </p>
   </li>
 </ul>
