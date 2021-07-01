@@ -5,7 +5,7 @@ import { TasksService } from "../services/tasks.service";
 
 import { TaskComponent } from "./task.component";
 
-fdescribe("TaskComponent", () => {
+describe("TaskComponent", () => {
   let component: TaskComponent;
   let fixture: ComponentFixture<TaskComponent>;
   let taskServiceMock = jasmine.createSpyObj("TaskService", ["updateTask", "deleteTask"]);
