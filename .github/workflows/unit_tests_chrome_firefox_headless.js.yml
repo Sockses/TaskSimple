@@ -26,7 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        working-directory: ./Angular
     - run: npm ci
     - run: npm build
     - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadless,FirefoxHeadless
