@@ -33,7 +33,7 @@ jobs:
     - name: Set GITHUB_WORKSPACE
       env:
         GITHUB_WORKSPACE: /home/runner/work/TaskSimple/TaskSimple/Angular
-    - run: echo $GITHUB_WORKSPACE
+      run: echo $GITHUB_WORKSPACE
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
