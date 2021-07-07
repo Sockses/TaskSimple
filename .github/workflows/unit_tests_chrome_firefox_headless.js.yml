@@ -10,21 +10,9 @@ on:
     branches: [ develop ]
 
 jobs:
-  checkout:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
   build:
 
-    needs: checkout
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: Angular
 
     strategy:
       matrix:
@@ -32,14 +20,14 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      run: 
-        working-directory: Angular
-    - run: |
+      run: |
         npm ci
         npm build
         npm test -- --no-watch --no-progress --browsers=ChromeHeadless,FirefoxHeadless
+      working-directory: ./Angular
