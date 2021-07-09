@@ -34,6 +34,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
+        echo $PWD
         npm ci
         npm build
         npm test -- --no-watch --no-progress --browsers=ChromeHeadless,FirefoxHeadless
