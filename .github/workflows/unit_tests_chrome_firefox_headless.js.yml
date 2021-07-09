@@ -33,9 +33,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: |
-        ls
-        npm ci
-        npm build
-        npm test -- --no-watch --no-progress --browsers=ChromeHeadless,FirefoxHeadless
-      # working-directory: ./Angular
+    - run: ls
+    - run: ls 
+      working-directory: Angular
+    - run: npm ci
+    - run: npm build
+    - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadless,FirefoxHeadless
