@@ -37,4 +37,4 @@ jobs:
         npm ci
         npm build
         npm test -- --no-watch --no-progress --browsers=ChromeHeadless,FirefoxHeadless
-      working-directory: Angular
+      working-directory: ./Angular
