@@ -17,7 +17,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - run: echo $GITHUB_WORKSPACE
 
   build:
 
@@ -30,18 +29,12 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: Set GITHUB_WORKSPACE
-      env:
-        GITHUB_WORKSPACE: /home/runner/work/TaskSimple/TaskSimple/Angular
-      run: | 
-        echo $GITHUB_WORKSPACE
-        echo ${{env.GITHUB_WORKSPACE}}
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - run: |
         npm ci
         npm build
         npm test -- --no-watch --no-progress --browsers=ChromeHeadless,FirefoxHeadless
+      working-directory: Angular
